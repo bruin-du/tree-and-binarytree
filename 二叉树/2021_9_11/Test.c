@@ -44,10 +44,12 @@ int main(void)
 	BTree* C = BTreeInit('C');
 	BTree* D = BTreeInit('D');
 	BTree* E = BTreeInit('E');
+	BTree* F = BTreeInit('F');
 	A->left = B;
 	B->left = D;
 	B->right = E;
 	A->right = C;
+	C->left = F;
 	BTreePrint(A);
 
 	system("pause");
