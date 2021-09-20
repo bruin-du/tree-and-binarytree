@@ -1,56 +1,25 @@
-#include<stdio.h>
-#include<windows.h>
+#include"tree.h"
 
-typedef char BTreeDataType;
-
-typedef struct BTreeNode
-{
-	struct BTreeNode* left;
-	struct BTreeNode* right;
-	BTreeDataType data;
-}BTree;
-
-BTree* BTreeInit(BTreeDataType x)
-{
-	BTree* bt = (BTree*)malloc(sizeof(BTree));
-	if (bt == NULL)
-	{
-		printf("malloc fail\n");
-		exit(-1);
-	}
-	bt->left = NULL;
-	bt->right = NULL;
-	bt->data = x;
-
-	return bt;
-}
-
-void BTreePrint(BTree* bt)
-{
-	if (bt == NULL)
-	{
-		printf("NULL ");
-		return;
-	}
-	printf("%c ", bt->data);
-	BTreePrint(bt->left);
-	BTreePrint(bt->right);
-}
 
 int main(void)
 {
-	BTree* A = BTreeInit('A');
-	BTree* B = BTreeInit('B');
-	BTree* C = BTreeInit('C');
-	BTree* D = BTreeInit('D');
-	BTree* E = BTreeInit('E');
-	BTree* F = BTreeInit('F');
+	BTNode* A = BTNodeInit('A');
+	BTNode* B = BTNodeInit('B');
+	BTNode* C = BTNodeInit('C');
+	BTNode* D = BTNodeInit('D');
+	BTNode* E = BTNodeInit('E');
 	A->left = B;
 	B->left = D;
 	B->right = E;
 	A->right = C;
-	C->left = F;
-	BTreePrint(A);
+	PrevOrder(A);
+	printf("\n");
+	InOrder(A);
+	printf("\n");
+	PostOrder(A);
+	printf("\n");
+	printf("%d\n", TreeSize(A));
+	printf("%d\n", TreeLeafSize(A));
 
 	system("pause");
 	return 0;
