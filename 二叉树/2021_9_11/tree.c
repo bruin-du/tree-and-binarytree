@@ -64,4 +64,25 @@ int TreeLeafSize(BTNode* root)
 	}
 }
 // ²ãÐò±éÀú
-void LevelOrder(BTNode* root);
+void LevelOrder(BTNode* root)
+{
+	Queue queue;
+	QueueInit(&queue);
+	QueuePush(&queue, root);
+	while (!QueueIsEmpty(&queue))
+	{
+		BTNode* node = QueueTop(&queue);
+		QueuePop(&queue);
+		printf("%c ", node->data);
+		if (node->left != NULL)
+		{
+			QueuePush(&queue, node->left);
+		}
+		if (node->right != NULL)
+		{
+			QueuePush(&queue, node->right);
+		}
+	}
+
+	QueueDestory(&queue);
+}

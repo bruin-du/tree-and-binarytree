@@ -10,6 +10,8 @@ typedef struct BTNode
 	BTDataType data;
 }BTNode;
 
+#include"Queue.h"
+
 BTNode* BTNodeInit(BTDataType x);
 
 // 前序 中序 后序遍历

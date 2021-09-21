@@ -1,5 +1,5 @@
 #include"tree.h"
-
+#include"Queue.h"
 
 int main(void)
 {
@@ -20,6 +20,7 @@ int main(void)
 	printf("\n");
 	printf("%d\n", TreeSize(A));
 	printf("%d\n", TreeLeafSize(A));
+	LevelOrder(A);
 
 	system("pause");
 	return 0;
